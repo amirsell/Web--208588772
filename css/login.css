@@ -1,0 +1,206 @@
+
+/* Position the navbar container inside the image */
+.container {
+  position: absolute;
+  margin: -10px -10px 0px ;
+  width: 1270px;
+}
+
+
+/* The navbar */
+.topnav {
+  overflow: hidden;
+  background-color: darkorange;
+    position: RELATIVE;
+  top: -55px
+}
+
+/* Navbar links */
+.topnav a {
+  float: right;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+    text-decoration:none;
+  font-size: 25px;
+}
+.topnav:hover{
+    background: rgba(255,128,0,0.5);
+}
+.topnav h3{
+    float: left;
+  color: #000000;
+  text-align: center;
+  text-decoration: none;
+    padding-top: 0px;
+    margin-top: 7px;
+    margin-bottom: 0px;
+    border: 3px solid black;
+    height: 50px;
+    width: 170px;
+    background-color: orange;
+    border-radius: 50%;
+    position: relative;
+    left: 500px;
+  font-size: 19px;
+position: relative;
+}
+.topnav a:hover {
+    background-color: rgba(255,128,0,0.5);
+  color: darkblue;
+
+}
+
+body {
+  background-image: url(../img/OrangeCloth.jpg);
+  max-height: 100%;
+   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+.login-form {
+  position: relative;
+  top:150px;
+  background: #fff;
+  width: 500px;
+  margin: 65px auto;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  border-radius: 4px;
+  box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+}
+.login-form h1 {
+  padding: 35px 35px 0 35px;
+  font-weight: 300;
+}
+.login-form .content {
+  padding: 35px;
+  text-align: center;
+
+}
+.login-form .input-field {
+  padding: 12px 5px;
+}
+.login-form .input-field input {
+  font-size: 16px;
+  display: block;
+  font-family: 'Rubik', sans-serif;
+  width: 100%;
+  padding: 10px 1px;
+  border: 0;
+  border-bottom: 1px solid #747474;
+  outline: none;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+.login-form .input-field input::-webkit-input-placeholder {
+  text-transform: uppercase;
+}
+.login-form .input-field input::-moz-placeholder {
+  text-transform: uppercase;
+}
+.login-form .input-field input:-ms-input-placeholder {
+  text-transform: uppercase;
+}
+.login-form .input-field input::-ms-input-placeholder {
+  text-transform: uppercase;
+}
+.login-form .input-field input::placeholder {
+  text-transform: uppercase;
+}
+.login-form .input-field input:focus {
+  border-color: #222;
+}
+.login-form a.link {
+  text-decoration: none;
+  color: #747474;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-top: 20px;
+}
+.login-form .action {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-direction: row;
+}
+.login-form .action button {
+  width: 100%;
+  border: none;
+  padding: 18px;
+  font-family: 'Rubik', sans-serif;
+  cursor: pointer;
+  text-transform: uppercase;
+  background: #e8e9ec;
+  color: #777;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 0;
+  letter-spacing: 0.2px;
+  outline: 0;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+
+}
+.login-form .action button:hover {
+  background: #d8d8d8;
+}
+.login-form .action button:nth-child(2) {
+  background: #2d3b55;
+  color: #fff;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 4px;
+}
+.login-form .action button:nth-child(2):hover {
+  background: #3c4d6d;
+}
+
+.grid_continer{
+display: grid;
+grid-template-columns: 200px auto auto;
+grid-template-rows: 240px auto auto;
+}
+.mainTitle{
+background-image: url(../img/Pizza.jpg);
+grid-column: 1/ span 2;
+grid-row: 1/1;
+background-size: 50% 50%;
+animation: anim ease-in-out 16s infinite;
+  position: relative;
+  top: 150px;
+  left: 300px;
+}
+@keyframes anim {  /* order that responsbile for animation in the main title*/
+    0%{
+        background-image: url(../img/Pizza2.jpg);
+    }
+
+    25% {
+        background-image: url(../img/Pizza1.jpg);
+    }
+    50%{
+        background-image: url(../img/pizza3.jpg);
+    }
+
+    75%{
+        background-image: url(../img/pizza4.jpg);
+    }
+
+    100%{
+    background-image: url(../img/Pizza2.jpg);
+    }
+}
+
+
