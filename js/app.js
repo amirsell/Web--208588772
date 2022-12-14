@@ -1,10 +1,6 @@
 import cart from './cart.js';
 import Cart from './cart.js'
 
-// Set current year
-const yearEl = document.querySelector(".year");
-const currentYear = new Date().getFullYear();
-yearEl.textContent = currentYear;
 
 // Make mobile navigation work
 const btnNavEl = document.querySelector(".btn-mobile-nav");
@@ -70,8 +66,8 @@ const obs = new IntersectionObserver(
 obs.observe(sectionHeroEl);
 
 // Page
-const loginButtonEl = document.querySelector(".login-button")
-const cartButtonEl = document.querySelector(".cart-button")
+const loginButtonEl = document.querySelector("#login-button")
+const cartButtonEl = document.querySelector("#cart-button")
 const cartContainerEl = document.querySelector(".cart-container")
 const cartContainerOverlayEl = document.querySelector(".cart-container-overlay")
 const bodyEl = document.querySelector("body")
@@ -90,17 +86,18 @@ loginButtonEl.addEventListener('click', e => {
     window.location.reload()
     return
   }
-  window.open('/login.html', "_self")
+   window.open('/login.html', "_self")
+
 })
 
 seeAllRecipesButtonEl.addEventListener('click', e => {
   e.preventDefault();
   const buttonValue = seeAllRecipesButtonEl.textContent
-  if (buttonValue === "See Less") {
-    seeAllRecipesButtonEl.textContent = "See All Recipes"
+  if (buttonValue === 'See Less') {
+    seeAllRecipesButtonEl.textContent = 'See All Recipes'
   } else {
-    // Scroll up to meals section so it has href like <a/>
-    seeAllRecipesButtonEl.textContent = "See Less"
+    // Scroll up to meals section, so it has href like <a/>
+    seeAllRecipesButtonEl.textContent = 'See Less'
   }
   additionalMealsExamples.forEach(el => {
     el.classList.toggle('hidden')
@@ -136,12 +133,6 @@ const mealsList = [
   },
 ]
 
-/*
-Users table
-Meals table - static
-Carts table- JOIN on user.id == cart.userId
-cart = json[]
-*/
 
 sectionMealsContainer.addEventListener('click', e => {
   const meals = document.querySelectorAll('.meal');
@@ -172,12 +163,11 @@ const onCartButtonClick = e => {
   preventScrolling()
 }
 
-cartButtonEl.addEventListener('click', onCartButtonClick)
 
 const onCartOverlayClick = e => {
   e.preventDefault();
   toggleCartPopups()
   allowScrolling()
 }
-
+cartButtonEl.addEventListener('click', onCartButtonClick)
 cartContainerOverlayEl.addEventListener('click', onCartOverlayClick)

@@ -6,14 +6,40 @@
     <title>Pizza login</title>
     <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/login.css">
-    <script defer src="js/login.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/general.css">
+
+    <script type="module" defer src="js/app.js"></script>
+    <script type="module" defer src="js/login.js"></script>
+    <script type="module" defer src="js/cart.js"></script>
 </head>
 <body>
+  <header class="header">
+      <a> <img class="logo"  alt="LuMalNati logo" src="img/LuLogo.jpg" /> </a>
+
+      <nav class="main-nav">
+        <ul class="main-nav-list">
+          <li><a class="main-nav-link" href="#meals">Meals</a></li>
+          <li>
+            <a class="main-nav-link" href="#testimonials">Testimonials</a>
+          </li>
+          <li><button  class="main-nav-link nav-btn"> Cart <i class="fa fa-shopping-cart" > </i>
+            </button></li>
+            <li><button class="main-nav-link nav-btn"  href="/index.html">Login</button></li>
+        </ul>
+      </nav>
+
+      <button class="btn-mobile-nav">
+        <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+        <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+      </button>
+    </header>
+
+
 
     <div class="main-container">
+
         <div class="form-container">
-
-
             <div class="form-body">
                 <h2 class="title">Login</h2>
 
@@ -35,7 +61,7 @@
 
             <div class="form-footer">
                 <div>
-                    <span>Don't have an account?</span> <a href="">Sign Up</a>
+                    <span>Don't have an account?</span> <a href="/index.html#cta">Sign Up</a>
                 </div>
             </div><!-- FORM FOOTER -->
 

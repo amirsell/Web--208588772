@@ -1,13 +1,9 @@
-/**************************/
-/* HEADER */
-/**************************/
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #fdf2e9;
-
   /* Because we want header to be sticky later */
   height: 9.6rem;
   padding: 0 4.8rem;
@@ -15,13 +11,13 @@
 }
 
 .logo {
-  height: 2.2rem;
+  width: 80px;
+  height: 80px;
+  padding-top: 16px;
 }
-
-/**************************/
-/* NAVIGATION */
-/**************************/
-
+/******************/
+/*  NAVIGATION  */
+/******************/
 .main-nav-list {
   list-style: none;
   display: flex;
@@ -29,8 +25,7 @@
   gap: 4.8rem;
 }
 
-.main-nav-link:link,
-.main-nav-link:visited {
+.main-nav-link:link,.main-nav-link:visited {
   display: inline-block;
   text-decoration: none;
   color: #333;
@@ -38,22 +33,39 @@
   font-size: 1.8rem;
   transition: all 0.3s;
 }
+.nav-btn {
+  background: linear-gradient(to bottom right, #EF4765, #FF9A5A);
+  border: 0;
+  border-radius: 12px;
+  color: #333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Segoe UI";
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  white-space: nowrap;
+}
 
-.main-nav-link:hover,
-.main-nav-link:active {
+.main-nav-link:hover, .main-nav-link:active {
   color: #cf711f;
 }
 
-.main-nav-link.nav-cta:link,
-.main-nav-link.nav-cta:visited {
+.main-nav-link.nav-cta:link,.main-nav-link.nav-cta:visited {
   padding: 1.2rem 2.4rem;
   border-radius: 9px;
   color: #fff;
   background-color: #e67e22;
 }
 
-.main-nav-link.nav-cta:hover,
-.main-nav-link.nav-cta:active {
+.main-nav-link.nav-cta:hover,.main-nav-link.nav-cta:active {
   background-color: #cf711f;
 }
 
@@ -62,16 +74,13 @@
   border: none;
   background: none;
   cursor: pointer;
-
   display: none;
 }
-
 .icon-mobile-nav {
   height: 4.8rem;
   width: 4.8rem;
   color: #333;
 }
-
 .icon-mobile-nav[name="close-outline"] {
   display: none;
 }
@@ -89,7 +98,6 @@
   z-index: 999;
   box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03);
 }
-
 .sticky .section-hero {
   margin-top: 9.6rem;
 }
@@ -155,6 +163,31 @@
   color: #cf711f;
   font-weight: 700;
 }
+#anima{
+  animation: wiggle 2s linear infinite;
+}
+@keyframes wiggle {
+  0%, 7% {transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0);
+  }
+}
 
 /**************************/
 /* FEATURED IN SECTION */
@@ -178,73 +211,9 @@
   display: flex;
   justify-content: space-around;
 }
-
 .logos img {
   height: 3.2rem;
-  filter: brightness(0);
-  opacity: 50%;
-}
-
-/**************************/
-/* HOW IT WORKS SECTION */
-/**************************/
-
-.section-how {
-  padding: 9.6rem 0;
-}
-
-.step-number {
-  font-size: 8.6rem;
-  font-weight: 600;
-  color: #ddd;
-  margin-bottom: 1.2rem;
-}
-
-.step-description {
-  font-size: 1.8rem;
-  line-height: 1.8;
-}
-
-.step-img-box {
-  position: relative;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.step-img-box::before,
-.step-img-box::after {
-  content: "";
-  display: block;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.step-img-box::before {
-  width: 60%;
-  /* height: 60%; */
-
-  /* 60% of parent's width */
-  padding-bottom: 60%;
-
-  background-color: #fdf2e9;
-  z-index: -2;
-}
-
-.step-img-box::after {
-  width: 45%;
-  padding-bottom: 45%;
-  background-color: #fae5d3;
-  z-index: -1;
-}
-
-.step-img {
-  width: 35%;
-  /* z-index: 10; */
+  opacity: 60%;
 }
 
 /**************************/
@@ -257,6 +226,7 @@
 
 .section-meals {
   padding: 9.6rem 0;
+
 }
 
 .meal {
@@ -291,13 +261,13 @@
   font-weight: 600;
 }
 
-.tag--vegetarian {
+.tag--notkosher {
   background-color: #51cf66;
 }
-.tag--vegan {
+.tag--kosher {
   background-color: #94d82d;
 }
-.tag--paleo {
+.tag--herbs {
   background-color: #ffd43b;
 }
 
@@ -335,6 +305,11 @@
 .all-recipes {
   text-align: center;
   font-size: 1.8rem;
+}
+.plan-details {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  text-align: center;
 }
 
 /**************************/
@@ -398,90 +373,8 @@
 }
 
 /**************************/
-/* MEALS SECTION */
+/* FEATURES SECTION */
 /**************************/
-
-.section-pricing {
-  padding: 9.6rem 0;
-}
-
-.pricing-plan {
-  border-radius: 11px;
-
-  width: 75%;
-}
-
-.pricing-plan--starter {
-  justify-self: end;
-  border: 2px solid #fdf2e9;
-  padding: 4.6rem;
-}
-
-.pricing-plan--complete {
-  background-color: #fdf2e9;
-  padding: 4.8rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.pricing-plan--complete::after {
-  content: "Best value";
-  position: absolute;
-  top: 6%;
-  right: -18%;
-
-  text-transform: uppercase;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #333;
-  background-color: #ffd43b;
-  padding: 0.8rem 8rem;
-  transform: rotate(45deg);
-}
-
-.plan-header {
-  text-align: center;
-  margin-bottom: 4.8rem;
-}
-
-.plan-name {
-  color: #cf711f;
-  font-weight: 600;
-  font-size: 2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.75;
-  margin-bottom: 3.2rem;
-}
-
-.plan-price {
-  font-size: 6.2rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 1.6rem;
-}
-
-.plan-price span {
-  font-size: 3rem;
-  font-weight: 500;
-  margin-right: 0.8rem;
-}
-
-.plan-text {
-  font-size: 1.6rem;
-  line-height: 1.6;
-  color: #6f6f6f;
-}
-
-.plan-sing-up {
-  text-align: center;
-  margin-top: 4.8rem;
-}
-
-.plan-details {
-  font-size: 1.6rem;
-  line-height: 1.6;
-  text-align: center;
-}
 
 .feature-icon {
   color: #e67e22;
@@ -510,11 +403,8 @@
 /**************************/
 
 .section-cta {
-  /* top / right / bottom / left */
-  /* padding: 9.6rem 0 12.8rem 0; */
-
-  /* top / horizontal / left */
   padding: 4.8rem 0 12.8rem;
+    background-color: #fdf2e9;
 }
 
 .cta {
@@ -524,7 +414,6 @@
   /* background-color: #e67e22; */
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
   border-radius: 11px;
-
   background-image: linear-gradient(to right bottom, #eb984e, #e67e22);
   overflow: hidden;
 }
@@ -552,7 +441,7 @@
       rgba(235, 151, 78, 0.35),
       rgba(230, 125, 34, 0.35)
     ),
-    url("../img/eating.jpg");
+    url("../img/sign-up-pic.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -592,13 +481,12 @@
   outline: none;
   box-shadow: 0 0 0 0.8rem rgba(253, 242, 233, 0.5);
 }
-
 /**************************/
 /* FOOTER */
 /**************************/
 
 .footer {
-  padding: 12.8rem 0;
+  padding: 5rem 0;
   border-top: 1px solid #eee;
 }
 
@@ -656,17 +544,13 @@
   flex-direction: column;
   gap: 2.4rem;
 }
-
-.footer-link:link,
-.footer-link:visited {
+.footer-link:link,.footer-link:visited {
   text-decoration: none;
   font-size: 1.6rem;
   color: #767676;
   transition: all 0.3s;
 }
-
-.footer-link:hover,
-.footer-link:active {
+.footer-link:hover, .footer-link:active {
   color: #555;
 }
 
