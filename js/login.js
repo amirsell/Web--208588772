@@ -1,16 +1,21 @@
+
 const emailInputEl = document.querySelector('#email');
 const passwordInputEl = document.querySelector('#password');
 const loginButtonEl = document.querySelector('.login-btn');
 
-const users = [
-  { email: 'adi.mizrahi@anyvision.co', password: '123456' }
-]
-
 
 const loginUser = details => {
+
+  const users = JSON.parse(localStorage.getItem('pizza-users'));
+
+  if (!users) {
+    alert('There are no users at all in the database')
+    return
+  }
+
   const { email, password } = details
-  // select * from users where x = email and y = password
   const user = users.find(user => user.email === email && user.password === password)
+
   if (!user) {
     alert('Username or password incorrect')
     return
@@ -26,5 +31,6 @@ const onLoginButtonClick = e => {
   // validation: is email format correct, is password in certain length
   loginUser({ email: emailValue, password: passwordValue })
 }
+
 
 loginButtonEl.addEventListener('click', onLoginButtonClick);

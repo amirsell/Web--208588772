@@ -1,39 +1,45 @@
-const items = [
-  {
-    id: '1',
-    price: 100,
-    title: 'Chili pizza',
-    subtitle: 'anchovi1',
-    imageUrl: 'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F19%2F2014%2F07%2F10%2Fpepperoni-pizza-ck-x.jpg&q=60',
-    amount: 1
-  },
-  {
-    id: '2',
-    price: 120,
-    title: 'Chili pizza',
-    subtitle: 'anchovi',
-    imageUrl: 'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F19%2F2014%2F07%2F10%2Fpepperoni-pizza-ck-x.jpg&q=60',
-    amount: 1
-  },
-]
-
 const cartListEl = document.querySelector('.cart-items')
-const cartTotalCostEl = document.querySelector('.cart-total-amount')
-const cartTotalItemsEl = document.querySelector('.cart-total-total')
+const removeAllButtonEl = document.querySelector('.cart-action')
 
 class Cart {
   total = 0
   cartItems = []
 
   init() {
-    // new place in memory
-    console.log('items ', items.length)
-    this.cartItems = [...items]
-    console.log('this items, ', this.cartItems.length, this.cartItems)
+    this.initCartElements()
+  }
+
+  initCartElements() {
     this.renderItems()
     this.total = this.getTotalCost()
     this.updateTotalPriceTextContent()
     this.updateTotalItemsTextContent()
+    this.registerListeners()
+  }
+
+  registerListeners() {
+    const self = this
+    removeAllButtonEl.addEventListener('click', this.deleteItems.bind(this))
+    const removeItemButtons = document.querySelectorAll('.cart-remove')
+    removeItemButtons.forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        const clickedNode = e.target
+        const mealEl = clickedNode.closest('.cart-item')
+        const mealId = mealEl.dataset.id
+        if (!mealId) return
+        self.deleteItem(mealId)
+      })
+    })
+  }
+
+  addItemToCart(item) {
+    const itemIndex = this.cartItems.findIndex(({ id }) => item.id === id)
+    if (itemIndex > -1) {
+      this.cartItems[itemIndex].amount += 1
+    } else {
+      this.cartItems.push(item)
+    }
   }
 
   renderItems() {
@@ -49,21 +55,16 @@ class Cart {
   renderItem({ id, price, title, subtitle, imageUrl, amount }) {
     const html = `
       <div class="cart-item" data-id="${id}">
-        <div class="cart-image-box">
-          <img src="${imageUrl}"  />
+      <div class="cart-item-info">
+        <img class="cart-image-box" src="${imageUrl}"  />
+        <div class="cart-about">
+          <h2 class="cart-about-title">${title}</h2>
+          <h3 class="cart-about-subtitle">${subtitle}</h3>
         </div>
-      <div class="cart-about">
-        <h2 class="cart-about-title">${title}</h2>
-        <h3 class="cart-about-subtitle">${subtitle}</h3>
-      </div>
-      <div class="cart-counter">
-        <div class="cart-counter-btn">-</div>
-        <div class="cart-counter-count">${amount}</div>
-        <div class="cart-counter-btn">+</div>
       </div>
       <div class="cart-counter-prices"></div>
         <div class="cart-prices">
-          <div class="cart-amount">$${price}</div>
+          <div class="cart-amount"> &#8362; ${price}</div>
           <div class="cart-remove"><u>Remove</u></div>
         </div>
       </div>
@@ -73,37 +74,37 @@ class Cart {
 
   getTotalCost() {
     let total = 0
-    items.forEach(item => {
-      total += item.price
+    this.cartItems.forEach(item => {
+      total += item.price * item.amount
     })
     return total
   }
 
   updateTotalPriceTextContent(total = this.total) {
-    cartTotalCostEl.textContent = `$${total}`
+    const cartTotalCostEl = document.querySelector('.cart-total-amount')
+    cartTotalCostEl.textContent =  `₪${ total}`
   }
 
   updateTotalItemsTextContent() {
-    cartTotalItemsEl.textContent = `${this.cartItems.length} Items`
-  }
-
-  updateItemAmount(cartItemId, amountToChange) {
-    this.updateItem(cartItemId, { amount: amount + amountToChange })
-  }
-
-  updateItem(cartItemId, updatedData) {
-    this.cartItems = this.cartItems.map(item => {
-      if (item.id !== cartItemId) return item
-      return { ...item, ...updatedData }
+    const cartTotalItemsEl = document.querySelector('.cart-items-total')
+    let totalItems = 0
+    this.cartItems.forEach(item => {
+      totalItems += item.amount
     })
+    cartTotalItemsEl.textContent = `${totalItems} Items`
   }
 
   deleteItem(cartItemId) {
-    this.cartItems = this.cartItems.filter(item => item.id === cartItemId)
+    const itemToRemoveIndex = this.cartItems.findIndex(item => item.id === cartItemId)
+    if (itemToRemoveIndex > -1) {
+      this.cartItems.splice(itemToRemoveIndex, 1)
+      this.initCartElements()
+    }
   }
 
   deleteItems() {
     this.cartItems = []
+    this.initCartElements()
   }
 }
 

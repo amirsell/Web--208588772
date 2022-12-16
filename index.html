@@ -7,17 +7,16 @@
       name="description"
       content="LuMalNati Pizza is the best pizza ever, 365 days per year. It's tailored to your personal tastes and nutritional needs."
     />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<!--    <link rel="manifest" href="manifest.webmanifest" />-->
     <link rel="icon" href="img/favicon-lu.jpg">
 
     <link
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"  rel="stylesheet"/>
-    <link rel="stylesheet" href="css/general.css"/>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/queries.css" />
+    <link rel="stylesheet" type="text/css" href="css/general.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/queries.css" />
     <script
       type="module"  src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
     ></script>
@@ -48,8 +47,7 @@
           </li>
           <li>
             <button
-              id="cart-button"
-              class="main-nav-link nav-btn"> Cart
+              id="cart-button" class="main-nav-link nav-btn"> Cart
               <i class="fa fa-shopping-cart" > </i>
             </button>
           </li>
@@ -92,16 +90,7 @@
             </div>
           </div>
           <div class="hero-img-box">
-            <picture>
-              <source srcset="img/pizza3.jpg" type="image/webp" />
-              <source srcset="img/pizza4.jpg" type="image/png" />
-              <img
-                src="img/pizzaBack.jpg"
-                class="hero-img"
-                alt="Woman enjoying food, meals in storage container, and food bowls on a table"
-              />
-            </picture>
-
+            <img  class= "hero-img" src="img/pizza4.jpg" alt="pizza">
           </div>
         </div>
       </section>
@@ -190,7 +179,7 @@
                   <ion-icon class="meal-icon" name="cash-outline"></ion-icon>
                   <span><strong>Price:</strong> 70 &#8362</span>
                 </li>
-                 <button type="submit" class="btn btn--form">Add to cart</button>
+                 <button type="submit" class="btn btn--form add-to-cart-button">Add to cart</button>
               </ul>
             </div>
           </div>
@@ -215,12 +204,12 @@
                 <li class="meal-attribute">
                   <ion-icon class="meal-icon" name="cash-outline"></ion-icon>
                   <span><strong>Price:</strong> 75 &#8362</span> </li>
-                <button type="submit" class="btn btn--form">Add to cart</button>
+                <button type="submit" class="btn btn--form add-to-cart-button">Add to cart</button>
               </ul>
             </div>
           </div>
 
-          <div class="meal meal-extra hidden">
+          <div data-meal-id="3" class="meal meal-extra hidden">
             <img src="img/Pizza-margherita.jpg" class="meal-img"  alt="Pizza margherita" />
             <div class="meal-content">
               <div class="meal-tags">
@@ -239,12 +228,12 @@
                 <li class="meal-attribute">
                   <ion-icon class="meal-icon" name="cash-outline"></ion-icon>
                   <span><strong>Price:</strong> 55 &#8362</span> </li>
-                <button type="submit" class="btn btn--form">Add to cart</button>
+                <button type="submit" class="btn btn--form add-to-cart-button">Add to cart</button>
               </ul>
             </div>
           </div>
 
-           <div class="meal meal-extra hidden">
+           <div data-meal-id="4" class="meal meal-extra hidden">
             <img src="img/hawaiian-pizza.jpg" class="meal-img"  alt="Hawaiian Pizza" />
             <div class="meal-content">
               <div class="meal-tags">
@@ -263,12 +252,12 @@
                 <li class="meal-attribute">
                   <ion-icon class="meal-icon" name="cash-outline"></ion-icon>
                   <span><strong>Price:</strong> 80 &#8362</span> </li>
-              <button type="submit" class="btn btn--form">Add to cart</button>
+              <button type="submit" class="btn btn--form add-to-cart-button">Add to cart</button>
               </ul>
             </div>
           </div>
 
-         <div class="meal meal-extra hidden">
+         <div data-meal-id="5" class="meal meal-extra hidden">
             <img src="img/Pizza1.jpg" class="meal-img"  alt="Crazy Lu" />
             <div class="meal-content">
               <div class="meal-tags">
@@ -288,7 +277,7 @@
                 <li class="meal-attribute">
                   <ion-icon class="meal-icon" name="cash-outline"></ion-icon>
                   <span><strong>Price:</strong> 95 &#8362</span> </li>
-              <button type="submit" class="btn btn--form">Add to cart</button>
+              <button type="submit" class="btn btn--form add-to-cart-button">Add to cart</button>
               </ul>
             </div>
           </div>
@@ -368,45 +357,24 @@
 
         <div class="gallery">
           <figure class="gallery-item">
-            <img src="img/gallery/gallery-1.jpg" alt="Photo of beautifully arranged food"/>
+            <img src="img/gallery/gallery-pic1.jpg" alt="Photo of beautifully arranged food"/>
           </figure>
           <figure class="gallery-item">
-            <img src="img/gallery/gallery-2.jpg" alt="Photo of beautifully arranged food"/>
+            <img src="img/gallery/gallery-pic9.jpg" alt="Photo of beautifully arranged food"/>
           </figure>
           <figure class="gallery-item">
-            <img src="img/gallery/gallery-3.jpg" alt="Photo of beautifullyarranged food"/>
+            <img src="img/gallery/pizzasharing.jpg" alt="Photo of beautifully arranged food"/>
           </figure>
           <figure class="gallery-item">
             <img
-              src="img/gallery/gallery-4.jpg" alt="Photo of beautifully arranged food"/>
+              src="img/pizzaBack.jpg" alt="Photo of beautifully arranged food"/>
           </figure>
           <figure class="gallery-item">
             <img
               src="img/gallery/gallery-5.jpg" alt="Photo of beautifully arranged food"/>
           </figure>
           <figure class="gallery-item">
-            <img src="img/gallery/gallery-6.jpg" alt="Photo of beautifully arranged food"/>
-          </figure>
-          <figure class="gallery-item">
-            <img src="img/gallery/gallery-7.jpg" alt="Photo of beautifully arranged food"/>
-          </figure>
-          <figure class="gallery-item">
-            <img src="img/gallery/gallery-8.jpg" alt="Photo of beautifully arranged food"/>
-          </figure>
-          <figure class="gallery-item">
-            <img
-              src="img/gallery/gallery-9.jpg" alt="Photo of beautifully arranged food"/>
-          </figure>
-          <figure class="gallery-item">
-            <img src="img/gallery/gallery-10.jpg" alt="Photo of beautifully arranged food"/>
-          </figure>
-          <figure class="gallery-item">
-            <img
-              src="img/gallery/gallery-11.jpg" alt="Photo of beautifully arranged food"/>
-          </figure>
-          <figure class="gallery-item">
-            <img
-              src="img/gallery/gallery-12.jpg" alt="Photo of beautifully arranged food"/>
+            <img src="img/gallery/pizzapho.jpg" alt="Photo of beautifully arranged food"/>
           </figure>
         </div>
       </section>
@@ -452,7 +420,7 @@
         </div>
       </section>
 
-      <section class="section-cta" id="cta">
+      <section name="cta" class="section-cta" id="cta">
         <div class="container">
           <div class="cta">
             <div class="cta-text-box">
@@ -462,9 +430,9 @@
                 in every aspect, Thank you for choosing us.
               </p>
 
-              <form class="cta-form" name="sign-up" >
+              <form class="cta-form sign-up-form" name="sign-up" >
                 <div>
-                  <div class ="error-messages"  ></div>
+                   <div id="toasts"></div>
                   <label   for="first-name">First Name</label>
                   <input id="first-name" type="text" placeholder="John" name="first-name" />
                 </div>
@@ -567,37 +535,16 @@
         <h3 class="cart-heading">Shopping Cart</h3>
         <h5 class="cart-action">Remove all</h5>
         </div>
-        <div class="cart-items">
-          <!-- <div class="cart-item">
-            <div class="cart-image-box">
-              <img src="img/omnifood-logo.png"  />
-            </div>
-            <div class="cart-about">
-              <h2 class="cart-about-title">Apple Juice</h2>
-              <h3 class="cart-about-subtitle">250ml</h3>
-              <img src="img/omnifood-logo.png" />
-            </div>
-            <div class="cart-counter">
-              <div class="cart-counter-btn">-</div>
-              <div class="cart-counter-count">2</div>
-              <div class="cart-counter-btn">+</div>
-              </div>
-            <div class="cart-counter-prices"></div>
-            <div class="cart-prices">
-              <div class="cart-amount">$2.99</div>
-              <div class="cart-remove"><u>Remove</u></div>
-              </div>
-          </div> -->
-        </div>
+        <div class="cart-items"></div>
 
           <hr class="cart-hr">
           <div class="cart-checkout">
             <div class="cart-total">
             <div>
             <div class="cart-subtotal">Sub-Total</div>
-            <div class="cart-items-total">2 items</div>
+            <div class="cart-items-total">0 items</div>
             </div>
-            <div class="cart-total-amount">$6.18</div>
+            <div class="cart-total-amount">$0</div>
             </div>
             <button class="cart-submit-button">Checkout</button>
           </div>
